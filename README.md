@@ -9,7 +9,7 @@
 - [Rebase](#rebase)
 - [Tag](#tag)
 - [Stash](#stash)
-- [Revert](#revert)
+- [Reset](#reset)
 - [Remote](#remote)
 - [Bonus](#bonus)
 
@@ -207,9 +207,98 @@ git stash drop <ref>
 git stash clear
 ```
 
-## <a id="revert"></a> Revert
+## <a id="reset"></a> Reset
 
-### Salva as alterações na memoria
+### Desfaz as alterações do commit do hash, deixando os arquivos em staged
 ```
-git stash
+git reset <hash>
+```
+
+### Desfaz as alterações do commit do hash, deixando os arquivos como not staged
+```
+git reset --mixed <hash>
+```
+
+### Desfaz o commit e tudo que foi feito
+```
+git reset --hard <hash>
+```
+
+### Remove o arquivo do staged
+```
+git reset src/example.ts
+```
+
+## <a id="remote"></a> Remote
+
+### Retorna a lista de remote
+```
+git remote
+```
+
+### Mostra informações sobre o remote
+```
+git remote -v
+```
+
+### Adiciona remote
+```
+git remote add <nome-remote> <URL>
+```
+
+### Remove remote
+```
+git remote rm <nome-remote> 
+```
+
+### Faz push da branch para o remote
+```
+git push origin <nome-branch>
+```
+
+### Envia todas as branchs para o remote
+```
+git push origin --all
+```
+
+### Lista todas as branchs disponíveis no remote
+```
+git branch -a
+```
+
+### Puxa novas atualizações da branch do remote, utilizando rebase
+```
+git pull origin <nome-branch> --rebase
+```
+
+### Exclui branch do remote
+```
+git push origin --delete <nome-branch>
+```
+
+### Envia as tags para o remote
+```
+git push origin main --tags
+```
+
+## <a id="bonus"></a> Bônus
+
+### Pega um commit de uma branch
+```
+git cherry-pick <hash>
+```
+
+### Desfaz o último commit
+```
+git reset HEAD~1
+```
+
+### Volta para a última branch
+```
+git checkout -
+```
+
+### Clona um repositório
+```
+git clone <URL>
 ```
